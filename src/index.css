@@ -1,0 +1,24 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  color: whitesmoke;
+  background-color: #8d957e;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  overflow-y: hidden;
+}
+.content {
+  padding-left: 100px;
+}
+
+.text-transparent-outline {
+  color: transparent;
+  -webkit-text-stroke: 0.5px white;
+}
