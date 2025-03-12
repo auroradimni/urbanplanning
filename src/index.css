@@ -5,8 +5,8 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
-  color: whitesmoke;
-  background-color: #8d957e;
+  color: rgb(9, 79, 51);
+  background: linear-gradient(to bottom, #5c715e, #5d6946, #a7b188);
 }
 
 body {
@@ -20,5 +20,5 @@ body {
 
 .text-transparent-outline {
   color: transparent;
-  -webkit-text-stroke: 0.5px white;
+  -webkit-text-stroke: 0.4px white;
 }
