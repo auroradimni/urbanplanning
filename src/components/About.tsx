@@ -1,35 +1,45 @@
-import { Link } from "react-router-dom";
-
-const About = () => {
+export default function About() {
   return (
-    <div
-      className="flex flex-col items-center justify-center bg-gray-300 p-12 text-center  shadow-xl shadow-cyan-50/40 w-100 h-150 opacity-70 "
-      style={{
-        borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70% ",
-      }}
-    >
-      <h1 className="text-md font-bold mb-6">Who Are We?</h1>
-      <p className=" text-sm text-gray-700  ">
-        At <strong>Urban Visionary</strong>, we believe that the best way to
-        predict the future is to design it. Our team of dedicated urban
-        planners, architects, and designers works tirelessly to transform cities
-        into sustainable, efficient, and aesthetically pleasing environments.
-        <br />
-        <br />
-        From modern transport solutions to green city initiatives, we integrate
-        cutting-edge technology with timeless architectural principles. Our goal
-        is to build cities that are not just functional but also
-        inspiring—places where people can thrive, connect, and dream big. Join
-        us in shaping the future of urban living.
-      </p>
-      <Link
-        to="/"
-        className="mt-6 text-blue-600 font-semibold hover:opacity-[.67] z-20 "
-      >
-        Back to Home
-      </Link>
-    </div>
-  );
-};
+    <section id="rreth-nesh" className="bg-background">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-20 lg:px-10 lg:py-24">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-paper sm:aspect-[4/3]">
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster="/media/hero-poster.jpg"
+          >
+            <source src="/media/mixed-use.mp4" type="video/mp4" />
+          </video>
+        </div>
 
-export default About;
+        <div>
+          <h2 className="text-[clamp(26px,5vw,46px)] font-light tracking-tight text-ink">
+            RRETH <span className="font-bold">NESH</span>
+          </h2>
+          <p className="mt-6 max-w-lg text-[14px] leading-[1.85] text-ink/70 sm:mt-8 sm:text-justify">
+            UrbanVisionary është një studio arkitekture dhe planifikimi urban e
+            përkushtuar për të krijuar hapësira që përmirësojnë jetën e njerëzve
+            dhe formësojnë qytetet e së ardhmes. Me ekipin tonë të arkitektëve
+            dhe planifikuesve synojmë të krijojmë hapësira të qëndrueshme, të
+            menduara me kujdes dhe të përshtatura për çdo kontekst urban.
+          </p>
+          <p className="mt-5 max-w-lg text-[14px] leading-[1.85] text-ink/70 sm:text-justify">
+            Çdo projekt është një bashkëpunim — nga analiza e territorit, te
+            modelimi 3D dhe ndjekja e zbatimit deri në përfundim.
+          </p>
+
+          <a
+            href="#projektet"
+            className="mt-8 inline-block text-[12px] tracking-[0.25em] text-ink transition-opacity hover:opacity-70 sm:mt-10"
+          >
+            MË SHUMË
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

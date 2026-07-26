@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { X } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -12,73 +13,79 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, project }) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center z-40 bg-opacity-50 pointer-events-auto">
-      <div className="bg-[linear-gradient(to_bottom,_#5c715e,_#5d6946,_#a7b188)] rounded-lg w-screen h-screen relative">
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-deep/85 p-0 sm:p-4"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="project-modal-title"
+    >
+      <div
+        className="relative flex h-full max-h-full w-full max-w-6xl flex-col overflow-y-auto bg-background sm:h-auto sm:max-h-[92vh] lg:flex-row lg:overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
-          className="absolute top-3 left-3 text-black font-bold text-xl z-50"
+          type="button"
+          className="fixed right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-deep/70 text-white transition-opacity hover:opacity-70 sm:absolute sm:right-5 sm:top-5 sm:bg-transparent sm:mix-blend-difference"
           onClick={onClose}
+          aria-label="Mbyll"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-black"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
+          <X size={22} strokeWidth={1.4} />
         </button>
 
-        <div className="flex flex-col sm:flex-row w-full h-screen  overflow-hidden">
-          <div className="flex-1 space-y-4 ">
-            {project.videos.length > 0 && (
-              <div className="grid  border-white bg-white rounded-lg shadow-lg opacity-70 shadow-cyan-50/40 ml-50  mb-10 mt-10 overflow-hidden ">
-                {project.videos.map((video, index) => (
-                  <video
-                    key={index}
-                    className={`${
-                      project.videos.length === 1
-                        ? "w-screen max-h-full"
-                        : "w-[48%] sm:w-[45%] md:w-[30%]"
-                    } h-full rounded-lg pointer-events-none`}
-                    controls
-                    autoPlay
-                    loop
-                    muted
-                  >
-                    <source src={video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                ))}
-              </div>
-            )}
+        <div className="flex-1 space-y-2 bg-paper lg:max-h-[92vh] lg:overflow-y-auto">
+          {project.videos.map((video, index) => (
+            <video
+              key={`v-${index}`}
+              className="w-full object-cover"
+              controls
+              playsInline
+              preload="metadata"
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          ))}
+          {project.images.map((image, index) => (
+            <img
+              key={`i-${index}`}
+              className="w-full object-cover"
+              src={image}
+              alt={`${project.title} ${index + 1}`}
+              loading="lazy"
+              decoding="async"
+            />
+          ))}
+        </div>
 
-            {project.images.length > 0 && (
-              <div className="flex flex-wrap gap-6 pt-20 p-15 border-2 border-white bg-white rounded-lg shadow-lg opacity-70 shadow-cyan-50/40 items-center mr-30 ml-[-100] mb-10 mt-10">
-                {project.images.map((image, index) => (
-                  <img
-                    key={index}
-                    className=" md:w-[80%] lg:w-[100%] h-auto rounded-lg"
-                    src={image}
-                    alt={`project image ${index + 1}`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="flex-1  overflow-auto p-10 pb-15 border-2 border-white bg-white rounded-lg shadow-lg opacity-70 shadow-cyan-50/40  items-center mr-30 ml-[-100] mb-7 mt-10 ">
-            <h2 className="text-3xl font-semibold pb-10">{project.title}</h2>
-            <p className="text-lg">{project.description}</p>
-          </div>
+        <div className="flex-1 p-6 pb-16 sm:p-8 lg:max-h-[92vh] lg:overflow-y-auto lg:p-14">
+          <p className="mb-5 text-[11px] tracking-[0.25em] text-stone sm:mb-6">
+            PROJEKT
+          </p>
+          <h2
+            id="project-modal-title"
+            className="text-[19px] font-light leading-tight tracking-[0.06em] text-ink sm:text-[24px]"
+          >
+            {project.title}
+          </h2>
+          <p className="mt-6 text-[14px] leading-[1.85] text-ink/70 sm:mt-7 sm:text-justify">
+            {project.description}
+          </p>
         </div>
       </div>
     </div>
