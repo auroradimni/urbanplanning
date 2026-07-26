@@ -10,6 +10,11 @@ import p2Gallery1 from "../assets/project2/gallery-1.jpg";
 import p2Poster from "../assets/project2/video-poster.jpg";
 import p3Cover from "../assets/project3/cover.jpg";
 import p4Cover from "../assets/project4/cover.jpg";
+import p5Cover from "../assets/project5/cover.png";
+import p5Gallery1 from "../assets/project5/gallery-1.png";
+import p5Gallery2 from "../assets/project5/gallery-2.png";
+import p5Gallery3 from "../assets/project5/gallery-3.png";
+import p5Gallery4 from "../assets/project5/gallery-4.png";
 
 export type ProjectItem = {
   title: string;
@@ -61,6 +66,16 @@ const projects: ProjectItem[] = [
       "For the design of this urban transportation hub, AutoCAD was employed to create precise technical drawings for stations, walkways, and vehicle flow. Revit helped in 3D modeling the architectural aspects, including the station’s structural elements and circulation spaces. SketchUp was used to quickly explore different design options, while Photoshop provided realistic renderings that showcased how the hub would function within the city’s urban fabric. To analyze the environmental impact, ArcGIS Pro was used to evaluate transportation patterns and surrounding infrastructure, optimizing accessibility and sustainability.",
     images: [],
     videos: ["/media/hero.mp4"],
+  },
+  {
+    title: "URBAN MASTERPLAN",
+    place: "Planifikim Urban",
+    cover: p5Cover,
+    teaser: "Masterplan me hapësira të gjelbra, banim dhe infrastrukturë ...",
+    description:
+      "Ky masterplan urban integron banimin, hapësirat publike dhe infrastrukturën në një kompozim të qëndrueshëm. Planimetritë dhe vizualizimet e sitit tregojnë ndërtesa me çati të gjelbra, korridore lineare, parqe dhe lidhje me rrjetin ekzistues urban. Analiza e territorit, masa e ndërtesave dhe rrjeti i lëvizjes janë zhvilluar për të balancuar densitetin me cilësinë e hapësirës publike.",
+    images: [p5Cover, p5Gallery1, p5Gallery3, p5Gallery2, p5Gallery4],
+    videos: [],
   },
 ];
 
