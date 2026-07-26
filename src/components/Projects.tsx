@@ -68,13 +68,43 @@ const projects: ProjectItem[] = [
     videos: ["/media/hero.mp4"],
   },
   {
-    title: "URBAN MASTERPLAN",
-    place: "Planifikim Urban",
+    title: "ECO RESIDENTIAL CLUSTER",
+    place: "Banimi",
     cover: p5Cover,
-    teaser: "Masterplan me hapësira të gjelbra, banim dhe infrastrukturë ...",
+    teaser: "Kompleks banimi me çati të gjelbra dhe hapësira të hapura ...",
     description:
-      "Ky masterplan urban integron banimin, hapësirat publike dhe infrastrukturën në një kompozim të qëndrueshëm. Planimetritë dhe vizualizimet e sitit tregojnë ndërtesa me çati të gjelbra, korridore lineare, parqe dhe lidhje me rrjetin ekzistues urban. Analiza e territorit, masa e ndërtesave dhe rrjeti i lëvizjes janë zhvilluar për të balancuar densitetin me cilësinë e hapësirës publike.",
-    images: [p5Cover, p5Gallery1, p5Gallery3, p5Gallery2, p5Gallery4],
+      "Ky projekt banimi trajton densitetin urban përmes ndërtesave me çati të gjelbra, oborre të brendshme dhe lidhje të forta me peizazhin. Vizualizimi aerial tregon masën e ndërtesave, rrjetin e lëvizjes dhe integrimin me kontekstin përreth.",
+    images: [p5Cover],
+    videos: [],
+  },
+  {
+    title: "DISTRICT MASTERPLAN",
+    place: "Planifikim Urban",
+    cover: p5Gallery1,
+    teaser: "Plan i rregullimit të zonës me parqe, banim dhe infrastrukturë ...",
+    description:
+      "Masterplani i distriktit organizon banimin, hapësirat publike dhe infrastrukturën në një kompozim të qartë. Planimetria thekson ndërtesat e reja, parqet dhe lidhjet me rrjetin ekzistues urban, duke balancuar densitetin me cilësinë e hapësirës publike.",
+    images: [p5Gallery1],
+    videos: [],
+  },
+  {
+    title: "URBAN PLAZA",
+    place: "Hapësira Publike",
+    cover: p5Gallery3,
+    teaser: "Shesh publik me peizazh, lojëra dhe ndërtesë me çati të gjelbër ...",
+    description:
+      "Sheshi urban kombinon peizazhin, rrjetin e këmbësorëve dhe një ndërtesë me çati të gjelbër. Hapësirat e gjelbra, zonat e lojërave dhe lëvizja e njerëzve janë organizuar për të krijuar një vend të gjallë dhe të aksesueshëm.",
+    images: [p5Gallery3],
+    videos: [],
+  },
+  {
+    title: "LINEAR GREEN CORRIDOR",
+    place: "Planifikim Urban",
+    cover: p5Gallery4,
+    teaser: "Korridor linear me park, banim dhe lidhje me transportin ...",
+    description:
+      "Ky korridor urban lidh banimin me hapësira të gjelbra dhe infrastrukturën e transportit. Planimetritë tregojnë peizazhin linear, zonat e aktivitetit dhe ndërtesat e reja si buffer midis lagjes ekzistuese dhe rrjetit të infrastrukturës.",
+    images: [p5Gallery4, p5Gallery2],
     videos: [],
   },
 ];
