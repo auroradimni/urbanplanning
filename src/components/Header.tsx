@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function InstagramIcon() {
   return (
@@ -11,16 +12,17 @@ function InstagramIcon() {
   );
 }
 
-const NAV = [
-  { label: "Rreth Nesh", href: "#rreth-nesh" },
-  { label: "Projektet", href: "#projektet" },
-  { label: "Shërbimet", href: "#sherbimet" },
-  { label: "Procesi", href: "#procesi" },
-  { label: "Kontakti", href: "#kontakti" },
-];
-
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+
+  const NAV = [
+    { label: t("nav.about"), href: "#rreth-nesh" },
+    { label: t("nav.projects"), href: "#projektet" },
+    { label: t("nav.services"), href: "#sherbimet" },
+    { label: t("nav.process"), href: "#procesi" },
+    { label: t("nav.contact"), href: "#kontakti" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 bg-deep text-white">
@@ -66,14 +68,30 @@ export default function Header() {
             <InstagramIcon />
           </a>
 
-          <span className="hidden text-[12px] tracking-[0.12em] text-white/60 sm:inline">
-            AL
-          </span>
+          <div className="flex items-center gap-1 text-[12px] tracking-[0.12em]">
+            <button
+              type="button"
+              onClick={() => setLang("sq")}
+              className={lang === "sq" ? "text-white" : "text-white/40 hover:text-white/70"}
+              aria-pressed={lang === "sq"}
+            >
+              AL
+            </button>
+            <span className="text-white/25">|</span>
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              className={lang === "en" ? "text-white" : "text-white/40 hover:text-white/70"}
+              aria-pressed={lang === "en"}
+            >
+              EN
+            </button>
+          </div>
 
           <button
             type="button"
             className="-mr-1 p-1 text-white lg:hidden"
-            aria-label={open ? "Mbyll menynë" : "Hap menynë"}
+            aria-label={open ? t("nav.close") : t("nav.open")}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X size={24} /> : <Menu size={24} />}

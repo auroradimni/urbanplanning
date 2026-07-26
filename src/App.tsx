@@ -5,11 +5,12 @@ import Projects from "./components/Projects";
 import Features from "./components/Features";
 import Process from "./components/Process";
 import Contact from "./components/Contact";
+import { LanguageProvider } from "./i18n/LanguageContext";
 import "./index.css";
 
 function App() {
   return (
-    <>
+    <LanguageProvider>
       <Header />
       <main>
         <Hero />
@@ -19,7 +20,7 @@ function App() {
         <Process />
         <Contact />
       </main>
-    </>
+    </LanguageProvider>
   );
 }
 

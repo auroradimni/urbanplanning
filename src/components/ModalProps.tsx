@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { X } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 interface ModalProps {
   isOpen: boolean;
@@ -13,6 +14,8 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, project }) => {
+  const { t } = useLanguage();
+
   useEffect(() => {
     if (!isOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -44,7 +47,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, project }) => {
           type="button"
           className="fixed right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-deep/70 text-white transition-opacity hover:opacity-70 sm:absolute sm:right-5 sm:top-5 sm:bg-transparent sm:mix-blend-difference"
           onClick={onClose}
-          aria-label="Mbyll"
+          aria-label="Close"
         >
           <X size={22} strokeWidth={1.4} />
         </button>
@@ -75,7 +78,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, project }) => {
 
         <div className="flex-1 p-6 pb-16 sm:p-8 lg:max-h-[92vh] lg:overflow-y-auto lg:p-14">
           <p className="mb-5 text-[11px] tracking-[0.25em] text-stone sm:mb-6">
-            PROJEKT
+            {t("projects.label")}
           </p>
           <h2
             id="project-modal-title"

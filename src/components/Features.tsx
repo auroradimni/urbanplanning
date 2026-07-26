@@ -1,39 +1,44 @@
 import { Lightbulb, Home, PenTool, Eye, MessageCircle } from "lucide-react";
-
-const FEATURES = [
-  {
-    icon: Lightbulb,
-    title: "Planifikim Urban",
-    desc: "Zhvillojmë ide që nxisin komunitete dhe qëndrueshmëri.",
-  },
-  {
-    icon: Home,
-    title: "Arkitekturë",
-    desc: "Dizajn bashkëkohor i personalizuar sipas nevojës suaj.",
-  },
-  {
-    icon: PenTool,
-    title: "Dizajn i Brendshëm",
-    desc: "Hapësira funksionale dhe estetike deri në detajin e fundit.",
-  },
-  {
-    icon: Eye,
-    title: "Vizualizime 3D",
-    desc: "Pamje realiste për të parë idenë tuaj para se të ndërtohet.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Konsulencë",
-    desc: "Udhëzim profesional në çdo hap të projektit.",
-  },
-];
+import { useLanguage } from "../i18n/LanguageContext";
 
 export default function Features() {
+  const { t } = useLanguage();
+
+  const FEATURES = [
+    {
+      icon: Lightbulb,
+      title: t("services.urban.title"),
+      desc: t("services.urban.desc"),
+    },
+    {
+      icon: Home,
+      title: t("services.arch.title"),
+      desc: t("services.arch.desc"),
+    },
+    {
+      icon: PenTool,
+      title: t("services.interior.title"),
+      desc: t("services.interior.desc"),
+    },
+    {
+      icon: Eye,
+      title: t("services.viz.title"),
+      desc: t("services.viz.desc"),
+    },
+    {
+      icon: MessageCircle,
+      title: t("services.consult.title"),
+      desc: t("services.consult.desc"),
+    },
+  ];
+
   return (
     <section id="sherbimet" className="bg-paper">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-24">
         <div className="mb-10 sm:mb-16">
-          <h2 className="text-[12px] tracking-[0.25em] text-ink">SHËRBIMET</h2>
+          <h2 className="text-[12px] tracking-[0.25em] text-ink">
+            {t("services.title")}
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 sm:gap-y-14 lg:grid-cols-5">

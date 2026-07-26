@@ -1,4 +1,8 @@
+import { useLanguage } from "../i18n/LanguageContext";
+
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section id="home" className="relative bg-deep">
       <div className="relative h-[calc(100svh-64px)] min-h-[440px] w-full overflow-hidden">
@@ -27,11 +31,11 @@ export default function Hero() {
             </h1>
 
             <p className="mt-5 text-[10px] leading-relaxed tracking-[0.2em] text-white/75 sm:text-[12px] sm:tracking-[0.28em]">
-              PLANIFIKIM URBAN &nbsp;/&nbsp; ARKITEKTURË &nbsp;/&nbsp; DIZAJN
+              {t("hero.tagline")}
             </p>
 
             <p className="mt-8 border border-white/25 bg-deep/40 px-5 py-4 text-[15px] font-light italic leading-relaxed text-white sm:mt-10 sm:px-6 sm:py-5 sm:text-[22px]">
-              The best way to predict the future is to design it.
+              {t("hero.slogan")}
             </p>
           </div>
         </div>
